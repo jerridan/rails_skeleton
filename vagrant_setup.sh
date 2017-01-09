@@ -35,10 +35,10 @@ function install_postgresql {
 
 function configure_database {
   echo "Configuring database"
-  sudo -u postgres psql -c "CREATE USER $POSTGRESQL_USER WITH PASSWORD '$POSTGRESQL_PASSWORD' CREATEDB CREATEUSER;" >/dev/null 2>&1 &&\
-  echo "listen_addresses = '*'" >> $POSTGRESQL_DIR/postgresql.conf
-  perl -p -i -e "s/= 5432/= $POSTGRESQL_PORT/g" $POSTGRESQL_DIR/postgresql.conf
-  echo -e "host\tall\tall\t0.0.0.0/0\tmd5" >> $POSTGRESQL_DIR/pg_hba.conf
+  sudo -u postgres psql -c "CREATE USER $POSTGRESQL_USER WITH PASSWORD '$POSTGRESQL_PASSWORD' CREATEDB CREATEROLE;" >/dev/null 2>&1
+  sudo -u postgres echo "listen_addresses = '*'" >> $POSTGRESQL_DIR/postgresql.conf
+  sudo -u postgres perl -p -i -e "s/= 5432/= $POSTGRESQL_PORT/g" $POSTGRESQL_DIR/postgresql.conf
+  sudo -u postgres echo -e "host\tall\tall\t0.0.0.0/0\tmd5" >> $POSTGRESQL_DIR/pg_hba.conf
 }
 
 function restart_database {
