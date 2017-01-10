@@ -22,3 +22,7 @@ Metrics/LineLength:
 Style/Documentation:
   Description: "This cop checks for missing top-level documentation of classes and modules."
   Enabled: false
+
+Style/StringLiterals:
+  Description: "Checks if uses of quotes match the configured preference."
+  EnforcedStyle: double_quotes
