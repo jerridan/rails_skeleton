@@ -5,3 +5,9 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+task(:default).clear.enhance([:backend_static_analysis])
+
+task backend_static_analysis: %w(
+  rubocop
+)
