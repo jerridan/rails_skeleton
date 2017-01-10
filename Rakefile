@@ -10,4 +10,5 @@ task(:default).clear.enhance([:backend_static_analysis])
 
 task backend_static_analysis: %w(
   rubocop
+  brakeman:check
 )

@@ -2,9 +2,10 @@ AllCops:
   TargetRubyVersion: 2.3
   DisabledByDefault: false
   Exclude:
-    - "**/db/schema.rb"
+    - "db/schema.rb"
     - "bin/*"
     - "vendor/**/*"
+    - "lib/tasks/**"
 
 Rails:
   Enabled: true
