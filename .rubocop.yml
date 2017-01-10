@@ -1,0 +1,23 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  DisabledByDefault: false
+  Exclude:
+    - "**/db/schema.rb"
+    - "bin/*"
+    - "vendor/**/*"
+
+Rails:
+  Enabled: true
+
+require: rubocop-rspec
+
+# STYLING
+
+Metrics/LineLength:
+  Description: "This cop checks the length of lines in the source code. The maximum length is configurable."
+  Max: 120
+  Enabled: true
+
+Style/Documentation:
+  Description: "This cop checks for missing top-level documentation of classes and modules."
+  Enabled: false
